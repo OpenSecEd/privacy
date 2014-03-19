@@ -1,0 +1,122 @@
+% $Id$
+\documentclass[a4paper,nocourse]{miunasgn}
+\usepackage[utf8]{inputenc}
+\usepackage[english,swedish]{babel}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{prettyref,varioref}
+\usepackage{natbib}
+\usepackage{listings}
+\usepackage[today,nofancy]{svninfo}
+\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+
+\svnInfo $Id$
+
+%\printanswers
+
+\courseid{IG036G}
+\course{Informationssäkerhet}
+\assignmenttype{Laboration}
+\title{Privacy is dead}
+\author{Daniel Bosk\footnote{%
+	Detta verk är tillgängliggjort under licensen Creative Commons 
+	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+}}
+\date{\svnId}
+
+\begin{document}
+\maketitle
+\thispagestyle{foot}
+\tableofcontents
+
+
+\section{Introduktion}
+\label{sec:introduction}
+\noindent
+Då vår värld blir alltmer uppkopplad och information blir enklare att 
+publicera, kopiera och spara i olika databaser ökar även behovet att skydda 
+informationen.
+Ett exempel som illustrerar enkelheten att publicera till synes ofarlig 
+information på ett sätt som ger skadliga effekter är en incident som drabbade 
+det norska kungahuset.
+Där publicerades den norska kungafamiljens geografiska position nästintill 
+i realtid -- information som av säkerhetsskäl normalt hålls hemlig -- via 
+geotaggade semesterbilder publicerade hos Instagram \cite{Roberts2012wia}.
+
+Samma säkerhetslucka kan ha stora konsekvenser även för vanliga människor, 
+trots att deras position normalt inte är sekretessbelagd, då det kan användas 
+exempelvis för att veta när huset är mest tillgängligt för inbrott.
+Ett proof-of-concept för detta är WeKnowYourHouse.com \cite{Brading2012tpl} som 
+söker igenom Twitterposter efter geotaggar och formuleringar som ''äntligen är 
+jag hemma''.
+
+Sedan har vi Samy Kamkars föreläsning ''How I met your girlfriend'' 
+\cite{Kamkar2010him} där han nyttjar tillgängligheten av personlig information 
+och svagheter i systemen som skyddar denna för att boka in en dejt med Anna 
+Faris.
+
+
+\section{Syfte}
+\label{sec:aim}
+\noindent
+Syftet med denna laboration är:
+\begin{itemize}
+	\input{aims.tex}
+\end{itemize}
+
+
+\section{Teori}
+\label{sec:theory}
+\noindent
+Det teoretiska stödet för denna uppgift kommer att ges alltefter kursen går.
+Uppgiften kommer att börja redan vid introduktionsföreläsningen och fortgå till 
+ett redovisningstillfälle i slutet av kursen då all kursens teori är 
+genomgången.
+
+
+\section{Genomförande}
+\label{sec:work}
+\noindent
+Du ska under kursens gång samla på dig information om kursansvarig lärare, 
+målet, för att i slutet av kursen göra en fullständig kartläggning av denne.
+Informationen kan variera från fritidssysselsättningar; matpreferenser; 
+telefonnummer; adresser till bostäder, sommarstugor och dylikt; till 
+arbetsvanor och vilken buss personen tar hem från jobbet.
+Du ska efter genomförandet veta mer om vederbörande än vederbörande själv.
+
+De enda krav som finns är följande:
+\begin{enumerate}
+  \item Målet inte får misstänka någonting.
+    Om målet blir varse att du försökt hitta information får du ett ''bu'' av 
+    alla närvarande vid redovisningstillfället -- vilket naturligtvis vore 
+    ytterst pinsamt.
+  \item Du måste kunna ange en (möjligen) anonym\footnote{%
+      Det finns inget krav på att ni ger källan anonymitet, är det exempelvis 
+      en före detta student som uttalat sig negativt kan ni ge dem källskydd.
+      Men det finns ingen egentlig anledning att göra detta mot exempelvis 
+      kollegor eller Facebook.
+    } källa för informationsläckaget.
+    Exempelvis ''målet yttrade under föreläsningen den 1/4 2013 att denne åkte 
+    skidor på fritiden'' eller ''en kollega berättade att målet brukar komma in 
+    vid niotiden''.
+  \item Du måste ge en uppskattning på tillförlitligheten till informationen.
+    Detta är först och främst för att det naturligtvis finns risken att ni 
+    hittar falsk information.
+    Det finns även en risk att vid redovisningstillfället presenteras 
+    information som säger emot annan information.
+    Ni behöver då tillförlitligheten för att kunna nå konsensus över vilken 
+    information som mest sannolikt är riktig.
+\end{enumerate}
+
+
+\section{Examination}
+\label{sec:Examination}
+\noindent
+All insamlad information redovisas muntligen och alla deltagares insamlade 
+information sammanställs vid ett redovisningstillfälle i slutet av kursen.
+
+
+\bibliography{literature}
+\end{document}
