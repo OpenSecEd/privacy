@@ -1,7 +1,7 @@
 % $Id$
 \documentclass[a4paper,nocourse]{miunasgn}
 \usepackage[utf8]{inputenc}
-\usepackage[english,swedish]{babel}
+\usepackage[swedish,english]{babel}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage{prettyref,varioref}
@@ -15,14 +15,14 @@
 %\printanswers
 
 \courseid{IG036G}
-\course{Informationssäkerhet}
-\assignmenttype{Laboration}
+\course{Information Security}
+\assignmenttype{Laboratory Assignment}
 \title{Privacy is dead}
 \author{Daniel Bosk\footnote{%
-	Detta verk är tillgängliggjort under licensen Creative Commons 
-	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
-	För att se en sammanfattning och kopia av licenstexten besök URL 
-	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+  This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 
+  Unported license.
+	To view a copy of this license, visit 
+	\url{http://creativecommons.org/licenses/by-sa/3.0/}.
 }}
 \date{\svnId}
 
@@ -32,90 +32,96 @@
 \tableofcontents
 
 
-\section{Introduktion}
+\section{Introduction}
 \label{sec:introduction}
-\noindent
-Då vår värld blir alltmer uppkopplad och information blir enklare att 
-publicera, kopiera och spara i olika databaser ökar även behovet att skydda 
-informationen.
-Ett exempel som illustrerar enkelheten att publicera till synes ofarlig 
-information på ett sätt som ger skadliga effekter är en incident som drabbade 
-det norska kungahuset.
-Där publicerades den norska kungafamiljens geografiska position nästintill 
-i realtid -- information som av säkerhetsskäl normalt hålls hemlig -- via 
-geotaggade semesterbilder publicerade hos Instagram \cite{Roberts2012wia}.
+Since our world becomes more connected and information becomes more accessible, 
+easier to publish, copy and save in different databases, the need for 
+protection increases.
+There are several examples of how ``innocently looking'' data are published 
+which yield that disastrous information can be derived.
 
-Samma säkerhetslucka kan ha stora konsekvenser även för vanliga människor, 
-trots att deras position normalt inte är sekretessbelagd, då det kan användas 
-exempelvis för att veta när huset är mest tillgängligt för inbrott.
-Ett proof-of-concept för detta är WeKnowYourHouse.com \cite{Brading2012tpl} som 
-söker igenom Twitterposter efter geotaggar och formuleringar som ''äntligen är 
-jag hemma''.
+One example is the Norwegian royal family.
+One of the children in the family published photographs from their vacation to 
+Instagram.
+These photographs happened to contain geotagging information, which per se is 
+not that dangerous.
+The problem was that the rate and time of publication gave the information 
+about their position in almost real-time \cite{Roberts2012wia}.
 
-Sedan har vi Samy Kamkars föreläsning ''How I met your girlfriend'' 
-\cite{Kamkar2010him} där han nyttjar tillgängligheten av personlig information 
-och svagheter i systemen som skyddar denna för att boka in en dejt med Anna 
-Faris.
+The same problem can arise for ordinary people, i.e.\ not-high-security 
+targets.
+For instance, a proof of concept service, WeKnowYourHouse.com, parsed Twitter 
+feeds for data and derived where people lives and if they were at home 
+\cite{Brading2012tpl}.
+
+The final example is by Samy Kamkar.
+In his talk ``How I Met Your Girlfriend'' \cite{Kamkar2010him} he shows how to 
+use the easy accessibility of personal information and technical 
+vulnerabilities to set up a date with Anna Faris.
 
 
-\section{Syfte}
+\section{Scope and Aim}
 \label{sec:aim}
-\noindent
-Syftet med denna laboration är:
+The aim of this assignment is to illustrate unintentional spreading of personal 
+information and how many small pieces of information can be combined to derive 
+new information and the possibilites for being misused.
+
+As such, after the completion of this assignment you should be able to:
 \begin{itemize}
 	\input{aims.tex}
 \end{itemize}
 
 
-\section{Teori}
+\section{Theory}
 \label{sec:theory}
-\noindent
-Det teoretiska stödet för denna uppgift kommer att ges alltefter kursen går.
-Uppgiften kommer att börja redan vid introduktionsföreläsningen och fortgå till 
-ett redovisningstillfälle i slutet av kursen då all kursens teori är 
-genomgången.
+The theoretical support for this assignment will be given during the time of 
+the course.
+Since the assignment starts at the beginning of the course and ends in the end, 
+you will successively get more and more tools at your disposal.
 
 
-\section{Genomförande}
-\label{sec:work}
-\noindent
-Du ska under kursens gång samla på dig information om kursansvarig lärare, 
-målet, för att i slutet av kursen göra en fullständig kartläggning av denne.
-Informationen kan variera från fritidssysselsättningar; matpreferenser; 
-telefonnummer; adresser till bostäder, sommarstugor och dylikt; till 
-arbetsvanor och vilken buss personen tar hem från jobbet.
-Du ska efter genomförandet veta mer om vederbörande än vederbörande själv.
+\section{Assignment}
+\label{sec:assignment}
+The assignment is to collect as much information as possible about the 
+principal lecturer of the course.
+In the end of the course all students in the class will present their findings 
+in a seminar, thus together mapping all collected information.
 
-De enda krav som finns är följande:
+The information collected may vary from hobbies, food preferences, phone 
+numbers, addresses for summer houses, etc.\ to working habits, e.g.\ office 
+hours, email response times, and so on.
+After this assignment you should know more about the teacher than the teacher 
+himself.
+
+However, there are some requirements:
 \begin{enumerate}
-  \item Målet inte får misstänka någonting.
-    Om målet blir varse att du försökt hitta information får du ett ''bu'' av 
-    alla närvarande vid redovisningstillfället -- vilket naturligtvis vore 
-    ytterst pinsamt.
-  \item Du måste kunna ange en (möjligen) anonym\footnote{%
-      Det finns inget krav på att ni ger källan anonymitet, är det exempelvis 
-      en före detta student som uttalat sig negativt kan ni ge dem källskydd.
-      Men det finns ingen egentlig anledning att göra detta mot exempelvis 
-      kollegor eller Facebook.
-    } källa för informationsläckaget.
-    Exempelvis ''målet yttrade under föreläsningen den 1/4 2013 att denne åkte 
-    skidor på fritiden'' eller ''en kollega berättade att målet brukar komma in 
-    vid niotiden''.
-  \item Du måste ge en uppskattning på tillförlitligheten till informationen.
-    Detta är först och främst för att det naturligtvis finns risken att ni 
-    hittar falsk information.
-    Det finns även en risk att vid redovisningstillfället presenteras 
-    information som säger emot annan information.
-    Ni behöver då tillförlitligheten för att kunna nå konsensus över vilken 
-    information som mest sannolikt är riktig.
+  \item The target of the information gathering \emph{must not} suspect 
+    anything, e.g.\ by excessively asking around -- then colleagues might bring 
+    it to the target's attention.
+    If the target becomes aware of this, you will get a ``boooh'' from the 
+    entire class during the presentation -- this is of course very awkward.
+
+  \item You must be able to provide a source of the information (leak).
+    E.g.\ ``the target mentioned during the lecture on 1/4 2013 that he does 
+    skiing'' or ``a colleague mentioned that he usually comes in around 
+    9 o'clock''.
+
+  \item You must also provide an estimate of how trustworthy the information 
+    is.
+    The reason for this is that you might find information which is plainly 
+    wrong or just misinterpreted.
+    There is also the risk that some information presented will contradict 
+    other information, then you need the estimate of trustworthyness to resolve 
+    the conflict.
 \end{enumerate}
 
 
 \section{Examination}
-\label{sec:Examination}
-\noindent
-All insamlad information redovisas muntligen och alla deltagares insamlade 
-information sammanställs vid ett redovisningstillfälle i slutet av kursen.
+\label{sec:exam}
+All collected information will be presented orally, from all participants, 
+during the presentation.
+You can find the time for this in the course schedule, it will be in the end of 
+the course.
 
 
 \bibliography{literature}
