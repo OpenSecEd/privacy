@@ -24,9 +24,13 @@ clean:
 
 ### INCLUDES ###
 
-miun.depend.mk:
-	wget http://ver.miun.se/build/$@
+INCLUDES= 	depend.mk miun.course.mk miun.package.mk
 
-include miun.depend.mk
-include miun.course.mk
-include miun.package.mk
+define inc
+ifeq ($(findstring $(1),${MAKEFILE_LIST}),)
+$(1):
+	wget https://raw.githubusercontent.com/dbosk/makefiles/master/$(1)
+include $(1)
+endif
+endef
+$(foreach i,${INCLUDES},$(eval $(call inc,$i)))
