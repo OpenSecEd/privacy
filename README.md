@@ -25,6 +25,8 @@ $ git submodule update --recursive --init
 Then you can go into the directory of the desired document and run `make`.
 The source files are structured as follows:
 
+- `diffpriv` contains a learning session for differential privacy.  It's based 
+  on a few papers illustrating a variety of uses.
 
 In each directory the files are structured as follows:
 

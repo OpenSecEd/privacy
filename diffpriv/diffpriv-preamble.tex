@@ -1,0 +1,28 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+\usepackage[defblank,oldenum]{paralist}
+\usepackage{cleveref}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Lap}{Lap}
+
+\usepackage[strict]{csquotes}
+\usepackage{acro}
+
+\usepackage[natbib,style=alphabetic,maxbibnames=99]{biblatex}
+\addbibresource{diffpriv.bib}
+
+\usepackage{xparse}
+
+\ProvideDocumentEnvironment{question}{o}{%
+  \IfValueTF{#1}{%
+    \begin{alertblock}{Question: #1}
+  }{%
+    \begin{alertblock}{Question}
+  }
+}{%
+  \end{alertblock}
+}
