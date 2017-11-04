@@ -1,38 +1,15 @@
-% $Id$
-\documentclass[a4paper,nocourse]{miunasgn}
-\usepackage[utf8]{inputenc}
-\usepackage[swedish,english]{babel}
-\usepackage[hyphens]{url}
-\usepackage{hyperref}
-\usepackage{prettyref,varioref}
-\usepackage{natbib}
-\usepackage{listings}
-\usepackage[today,nofancy]{svninfo}
-\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+\title{Lab: Privacy is dead}
+\author{Daniel Bosk}
+\affil{%
+  Department of Information and Communication Systems\\
+  Mid Sweden University, Sundsvall
+}
 
-\svnInfo $Id$
-
-%\printanswers
-
-\courseid{IG036G}
-\course{Information Security}
-\assignmenttype{Laboratory Assignment}
-\title{Privacy is dead}
-\author{Daniel Bosk\footnote{%
-  This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 
-  Unported license.
-	To view a copy of this license, visit 
-	\url{http://creativecommons.org/licenses/by-sa/3.0/}.
-}}
-\date{\svnId}
-
-\begin{document}
 \maketitle
-\thispagestyle{foot}
 \tableofcontents
 
 
-\section{Introduction}
+\section{Introduction}%
 \label{sec:introduction}
 Since our world becomes more connected and information becomes more accessible, 
 easier to publish, copy and save in different databases, the need for 
@@ -46,21 +23,21 @@ Instagram.
 These photographs happened to contain geotagging information, which per se is 
 not that dangerous.
 The problem was that the rate and time of publication gave the information 
-about their position in almost real-time \cite{Roberts2012wia}.
+about their position in almost real-time~\cite{Roberts2012wia}.
 
 The same problem can arise for ordinary people, i.e.\ not-high-security 
 targets.
 For instance, a proof of concept service, WeKnowYourHouse.com, parsed Twitter 
-feeds for data and derived where people lives and if they were at home 
-\cite{Brading2012tpl}.
+feeds for data and derived where people lives and if they were at 
+home~\cite{Brading2012tpl}.
 
 The final example is by Samy Kamkar.
-In his talk ``How I Met Your Girlfriend'' \cite{Kamkar2010him} he shows how to 
+In his talk ``How I Met Your Girlfriend''~\cite{Kamkar2010him} he shows how to 
 use the easy accessibility of personal information and technical 
 vulnerabilities to set up a date with Anna Faris.
 
 
-\section{Scope and Aim}
+\section{Scope and Aim}%
 \label{sec:aim}
 The aim of this assignment is to illustrate unintentional spreading of personal 
 information and how many small pieces of information can be combined to derive 
@@ -72,7 +49,7 @@ As such, after the completion of this assignment you should be able to:
 \end{itemize}
 
 
-\section{Theory}
+\section{Theory}%
 \label{sec:theory}
 The theoretical support for this assignment will be given during the time of 
 the course.
@@ -80,7 +57,7 @@ Since the assignment starts at the beginning of the course and ends in the end,
 you will successively get more and more tools at your disposal.
 
 
-\section{Assignment}
+\section{Assignment}%
 \label{sec:assignment}
 The assignment is to collect as much information as possible about the 
 principal lecturer of the course.
@@ -116,7 +93,7 @@ However, there are some requirements:
 \end{enumerate}
 
 
-\section{Examination}
+\section{Examination}%
 \label{sec:exam}
 All collected information will be presented orally, from all participants, 
 during the presentation.
@@ -124,5 +101,4 @@ You can find the time for this in the course schedule, it will be in the end of
 the course.
 
 
-\bibliography{literature}
-\end{document}
+\printbibliography{}

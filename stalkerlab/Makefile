@@ -1,36 +1,15 @@
-# $Id$
+.PHONY: all print
+all print: stalkerlab.pdf
 
-DOCUMENTS=	privacy.pdf
-FILES=		privacy.tex aims.tex literature.tex literature.bib
-CATEGORY=	security/labs
-PACKAGE=	privacy-src
-PACKAGE_FILES=	${FILES} Makefile
-PUB_FILES=	${DOCUMENTS} ${PACKAGE}.tar.gz
+stalkerlab.pdf: stalkerlab.tex preamble.tex literature.bib
+stalkerlab.pdf: contents.tex aims.tex literature.tex
 
-privacy.pdf: ${FILES}
 
-#export no
-
-Makefile.export: Makefile
-PACKAGE_FILES=	${FILES:.tex=.exporttex} Makefile.export
-
-literature.bib: ../../infosak.bib
-	${CP} $^ $@
-
+.PHONY: clean
 clean:
-	${RM} literature.bib
+	${RM} stalkerlab.pdf
 
-#endexport
 
-### INCLUDES ###
-
-INCLUDES= 	depend.mk miun.course.mk miun.package.mk
-
-define inc
-ifeq ($(findstring $(1),${MAKEFILE_LIST}),)
-$(1):
-	wget https://raw.githubusercontent.com/dbosk/makefiles/master/$(1)
-include $(1)
-endif
-endef
-$(foreach i,${INCLUDES},$(eval $(call inc,$i)))
+INCLUDE_MAKEFILES=../makefiles
+include ${INCLUDE_MAKEFILES}/tex.mk
+include ${INCLUDE_MAKEFILES}/doc.mk
