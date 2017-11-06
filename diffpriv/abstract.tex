@@ -1,16 +1,29 @@
-In this session we look at differential privacy~\cite{DifferentialPrivacy}.
-We review the definitions of what it is and look at a variety of uses.
+User data is collected and processed in many applications.
+From a privacy perspective, this is bad for the users --- it is a privacy risk,
+that data might leak or be used for something unintended by the user.
+In many cases we actually do not need the exact user data, e.g.\ if we want to 
+estimate user behaviour or do statistical computations over all users.
+One tool that is available to use is differential privacy.
+Here we review the definitions of what it is and look at a variety of uses.
 
-The literature we rely on consists of the following:
+In particular, after this session you should be able to
 \begin{itemize}
-\item \citetitle{DifferentialPrivacy}~\cite{DifferentialPrivacy}
-\item \citetitle{DiffPrivSurvey}~\cite{DiffPrivSurvey}
+  \item \emph{understand} the uses of differential privacy and to which kind of 
+    problem it can be applied.
+  \item \emph{analyse} different solutions in the research literature based on 
+    differential privacy and \emph{suggest} a design for a solution to a given 
+    problem using the relevant findings.
 \end{itemize}
-The above cover the basic theory of differential privacy.
-We will furthermore look at an interesting application of differential privacy 
-in:
+
+The basic theory of differential privacy is covered by Chapters 1--2 (with more
+in Chapter 3) in 
+\citetitle{DifferentialPrivacyBook}~\cite{DifferentialPrivacyBook}.
+We will furthermore look at some interesting applications of differential 
+privacy in:
 \begin{itemize}
-\item \citetitle{ChallengingDiffPriv}~\cite{ChallengingDiffPriv}
-\item \citetitle{BLIP-1}~\cite{BLIP-1}
-\item \citetitle{BLIP-2}~\cite{BLIP-2}
+  \item \citetitle{ChallengingDiffPriv}~\cite{ChallengingDiffPriv},
+  \item \citetitle{BLIP-1}~\cite{BLIP-1},
+  \item \citetitle{BLIP-2}~\cite{BLIP-2},
+  \item \citetitle{RAPPOR}~\cite{RAPPOR}, and
+  \item \citetitle{RAPPOR-unknown}~\cite{RAPPOR-unknown}.
 \end{itemize}
