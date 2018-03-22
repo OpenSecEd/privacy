@@ -28,6 +28,9 @@ The source files are structured as follows:
 - `diffpriv` contains a learning session for differential privacy.  It's based 
   on a few papers illustrating a variety of uses.
 
+- `stalkerlab` contains a lab where the students are assigned to find out useful 
+  information about a target.
+
 In each directory the files are structured as follows:
 
 - `<name>-content.tex` contains the main content, this is made to be included 
