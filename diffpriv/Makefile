@@ -1,10 +1,10 @@
 SRC+=		preamble.tex diffpriv.bib
 SRC+=		abstract.tex contents.tex
 
-.PHONY: all
-all: notes.pdf
-
-notes.pdf: notes.tex ${SRC}
+#.PHONY: all
+#all: notes.pdf
+#
+#notes.pdf: notes.tex ${SRC}
 
 
 .PHONY: all
