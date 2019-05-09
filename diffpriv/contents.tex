@@ -52,7 +52,7 @@
   \pause{}
 
   \begin{block}{Purpose}
-    Protect one entry when publishing statistics about a database.
+    Protect \emph{any} one entry when publishing statistics about a database.
   \end{block}
 \end{frame}
 
@@ -80,7 +80,7 @@
 \begin{frame}
   \begin{block}{The idea}
     \begin{itemize}
-      \item We want to protect one entry in this database.
+      \item We want to protect \emph{any} one entry in this database.
 
         \pause{}
 
@@ -94,27 +94,28 @@
 \end{frame}
 
 \begin{frame}
-  \begin{definition}[Differential privacy\footfullcite{DiffPrivSurvey}]
+  \begin{definition}[Differential 
+    privacy\footfullcite{DifferentialPrivacyBook}]
     \begin{itemize}
-      \item Let \(K\) be a randomized function.
-      \item Let \(D_1, D_2\in \ker(K)\) be datasets differing on at most one 
+      \item Let \(\M\) be a randomized function.
+      \item Let \(D, D'\in \ker(\M)\) be databases differing on at most one 
         element.
-      \item Let \(S\subseteq \im(K)\).
-      \item \(K\) is \(\epsilon\)-differentially private if and only if
-        \[\Pr[K(D_1)\in S] \leq e^\epsilon \Pr[K(D_2)\in S]\]
-      \item \color{red} Probability taken over coin-tosses of \(K\).
+      \item Let \(S\subseteq \im(\M)\).
+      \item \(\M\) is \(\epsilon\)-differentially private if and only if
+        \[\Pr[\M[D]\in S] \leq e^\epsilon \Pr[\M[D']\in S]\]
+      \item \color{red} Probability taken over coin-tosses of \(\M\).
       \end{itemize}
   \end{definition}
 \end{frame}
 
 \begin{frame}
-  \begin{question}
+  \begin{remark}
     \begin{itemize}
-      \item \enquote{Probability taken over coin-tosses of \(K\).}
-      \item We need to emphasize that since it could also be the 
-        \enquote{probability over the differences of \(D_1, D_2\)}.
+      \item \enquote{Probability taken over coin-tosses of \(\M\).}
+      \item As opposed to the \enquote{probability over the differences of \(D, 
+            D'\)}.
     \end{itemize}
-  \end{question}
+  \end{remark}
 \end{frame}
 
 \begin{frame}
@@ -126,64 +127,33 @@
 \begin{frame}
   \begin{definition}[Sensitivity]
     \begin{itemize}
-      \item Let \(f\) be the true function, i.e.\ not \(K\).
-      \item \(D_1, D_2\) as before.
+      \item Let \(f\) be the true function, i.e.\ not \(\M\).
+      \item \(D, D'\) as before.
       \item The sensitivity of \(f\) is \[
-          \Delta f = \max_{D_1, D_2} || f(D_1) - f(D_2) ||_{\color{red} 1}.
+          \Delta f = \max_{D, D'} || f(D) - f(D') ||_{1}.
         \]
     \end{itemize}
   \end{definition}
-
-  \pause{}
-
-  \begin{question}
-    \begin{itemize}
-      \item What is the meaning of {\color{red} 1}?
-        \(||\vec x||_1 = \sum_{x\in \vec x} |x|\)?
-      \item It's a norm, but why specify?
-      \item Shouldn't the norm depend on \(\im(f)\)?
-    \end{itemize}
-  \end{question}
 \end{frame}
 
 \begin{frame}
   \begin{theorem}
     \begin{itemize}
       \item \(f\) as before.
-      \item \(K_f\) is the mechanism adding noise to \(f\).
+      \item \(\M_f\) is the mechanism adding noise to \(f\).
 
-        \pause{}
+        \pause
 
-      \item If \(K_f\) adds noise with \(\Lap(\Delta f/\epsilon)\),
-        then \(K\) provides \(\epsilon\)-differential privacy.
+      \item If \(\M_f\) adds noise with \(\Lap(\Delta f/\epsilon)\),
+        then \(\M\) provides \(\epsilon\)-differential privacy.
     \end{itemize}
   \end{theorem}
 
-  \pause{}
+  \pause
 
-  \begin{proof}\relax
-    [I trust Cynthia on this for now.]
-  \end{proof}
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Consequences}
+  \begin{remark}
     The needed noise depends only on the sensitivity of \(f\) and \(\epsilon\).
-  \end{block}
-
-  \pause{}
-
-  \begin{question}
-    \begin{itemize}
-      \item Probably the definition is chosen due to \(\Lap\) distribution.
-        \begin{description}
-          \item[Definition] \(\Pr[K(D_1)\in S] \leq e^\epsilon \Pr[K(D_2)\in 
-              S]\)
-          \item[Proof] \(\Lap(\Delta f/\epsilon)\propto e^{-|x|(\epsilon/\Delta
-                f)}\)
-        \end{description}
-    \end{itemize}
-  \end{question}
+  \end{remark}
 \end{frame}
 
 \begin{frame}
@@ -210,30 +180,15 @@
 
 \section{Uses}
 
-\subsection{Statistical databases}
-
-\begin{frame}
-  \begin{block}{The work being done}
-    How to add noise to different functions?
-  \end{block}
-
-  \pause{}
-
-  \begin{question}
-    This is my interpretation of the survey.
-    Agree?
-  \end{question}
-\end{frame}
-
 \subsection{Matching profiles}
 
 \begin{frame}
   \begin{block}{The idea}
     \begin{itemize}
       \item Differential privacy is designed for statistics.
-      \item {\color{red} We must be able to add noise (?).}
+      \item {\color{red} We must be able to add noise.}
 
-        \pause{}
+        \pause
 
       \item Computing a similarity score can be based on statistics:
         \begin{itemize}
@@ -256,7 +211,7 @@
     \end{itemize}
   \end{example}
 
-  \pause{}
+  \pause
 
   \begin{example}[BLIP\footfullcite{BLIP-2}]
     \begin{itemize}
@@ -282,14 +237,14 @@
       \item Hash the entries of the profile into a Bloom filter (\(L\)-bit 
         string).
 
-        \pause{}
+        \pause
 
       \item Generate a random \(L\)-bit string.
       \item XOR them together --- adds noise.
     \end{itemize}
   \end{block}
 
-  \pause{}
+  \pause
 
   \begin{block}{Results\footfullcite{BLIP-2}}
     \begin{itemize}
@@ -300,31 +255,15 @@
 \end{frame}
 
 
-\section{Problems}
-
-\subsection{Attacks?}
-
 \begin{frame}
-  \begin{block}{Isn't it a guarantee?}
+  \begin{question}[Isn't it a guarantee?]
     \begin{itemize}
       \item You are guaranteed \(\epsilon\)-differential privacy.
       \item So there is something the attacker may learn.
-
-        \pause{}
-
       \item But how much is that?
       \item How do we choose \(\epsilon\)?
     \end{itemize}
-  \end{block}
-
-  \pause{}
-
-  \begin{block}{Setting \(\epsilon\)}
-    \begin{itemize}
-      \item That's an open research problem~\cite{ChallengingDiffPriv}.
-    \end{itemize}
-  \end{block}
-
+  \end{question}
 \end{frame}
 
 \begin{frame}
@@ -333,107 +272,59 @@
       \item \citet{ChallengingDiffPriv} constructs two practical attacks.
       \item These reconstruct the profiles in BLIP (within \(\epsilon\)).
 
-        \pause{}
+        \pause
 
       \item This is one step closer to an informed choice for \(\epsilon\).
     \end{itemize}
   \end{block}
 \end{frame}
 
-\subsection{Outline of attack}
+\subsection{Analytics: collecting user data}
 
 \begin{frame}
-\end{frame}
-
-
-\section{Discussion}
-
-\subsection{Comments}
-
-\begin{frame}
-  \begin{question}
+  \begin{example}[RAPPOR\footfullcite{RAPPOR}]
     \begin{itemize}
-      \item The original paper has more than 1500 citations.
-      \item That suggests a lot of results in the area.
-
-        \pause{}
-
-      \item Considering that, isn't the survey a bit shallow?
+      \item Local differential privacy: yields correct population statistics.
+      \item Estimate client-side distribution of strings.
+      \item Used in Chrome to track distribution of configurations.
     \end{itemize}
-  \end{question}
+  \end{example}
 \end{frame}
 
+\subsection{Machine learning}
+
 \begin{frame}
-  \begin{block}{Recommended reading}
+  \begin{remark}
     \begin{itemize}
-      \item \fullcite{ChallengingDiffPriv}
+      \item Machine learning is \enquote{just statistics}.
     \end{itemize}
-  \end{block}
-\end{frame}
+  \end{remark}
 
-\subsection{Questions}
-
-\begin{frame}
-  \begin{question}
-    Must we add noise?
-    Apparently not\footfullcite{MechanismDesignViaDiffPriv}.
-  \end{question}
-
-  \pause{}
+  \pause
 
   \begin{example}
     \begin{itemize}
-      \item In their work \(f\) maps databases to strings, strategies or trees.
-
-        \pause{}
-
-      \item Well, it's kind of the case for BLIP, isn't it?
-      \item But BLIP still adds noise.
-
-        \pause{}
-
-      \item They use a utility function \(u(D, y)\) measuring the quality of 
-        \(y\).
-
-      \item They output a \(y\) with probability \(e^{-\epsilon u(D,y)/2}\).
+      \item Can ensure that a model is differentially private.
+      \item Differential privacy guarantees protection from over-fitting.
     \end{itemize}
   \end{example}
-
-  \pause{}
-
-  \begin{question}
-    Isn't this just a matter of perspective?
-  \end{question}
 \end{frame}
 
 \begin{frame}
-  \begin{question}
+  \begin{example}[Federated learning]
     \begin{itemize}
-      \item Can we use differential privacy also when presenting our profile?
-      \item I add random noise to my profile?
-      \item I randomly remove entries?
+      \item Want a model trained on databases \(D_1, \dotsc, D_n\).
+      \item The owner of \(D_i\) don't want to leak its database.
+      \item Can create output \(O_i\) which yields differential privacy for 
+        \(D_i\).
+      \item E.g.~GBoard
     \end{itemize}
-  \end{question}
-
-  \pause{}
-
-  \begin{question}
-    \begin{itemize}
-      \item What else can we use it for?
-      \item Is the addition of noise a sufficient criteria?
-    \end{itemize}
-  \end{question}
-\end{frame}
-
-\begin{frame}
-  \begin{question}
-    Any other thoughts, comments or questions?
-  \end{question}
+  \end{example}
 \end{frame}
 
 
 %%% REFERENCES %%%
 
 \begin{frame}[allowframebreaks]
-  \printbibliography{}
+  \printbibliography
 \end{frame}
